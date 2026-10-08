@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from presets_thuisbatterijgids import THUISBATTERIJGIDS_PRESETS
+
 # Fluvius residential capacity tariff 2026, €/kW/year including 6% VAT.
 # Source: Flemish regulator rates excl. VAT × 1.06 (YouPower / VNR 2026).
 CAPACITY_TARIFFS_EUR_PER_KW_YEAR = {
@@ -186,17 +188,6 @@ BATTERY_PRESETS = {
         "lifetime_years": 10.0,
         "self_discharge_pct_per_day": 0.0,
     },
-    "Marstek Venus E 3.0 (5.12 kWh)": {
-        "capacity_kwh": 5.12,
-        "charge_efficiency": 0.95,
-        "discharge_efficiency": 0.95,
-        "max_charge_kw": 2.5,
-        "max_discharge_kw": 2.5,
-        "min_soc_pct": 10.0,
-        "cost_eur": 1199.0,
-        "lifetime_years": 10.0,
-        "self_discharge_pct_per_day": 0.0,
-    },
     "Marstek Venus E 3.0 (10.24 kWh, 2 units)": {
         "capacity_kwh": 10.24,
         "charge_efficiency": 0.95,
@@ -275,3 +266,4 @@ BATTERY_PRESETS = {
         "self_discharge_pct_per_day": 0.0,
     },
 }
+BATTERY_PRESETS.update(THUISBATTERIJGIDS_PRESETS)
