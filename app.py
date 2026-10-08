@@ -251,12 +251,28 @@ def _build_figure(sim: pd.DataFrame, resolution: str) -> go.Figure:
 def main() -> None:
     st.set_page_config(page_title="Thuisbatterij-simulator", layout="wide")
     _init_state()
-    st.title("Thuisbatterij – winst- en verliesimulator")
-    st.caption(
-        "Gebruikt Fluvius-kwartierhistoriek (afname/injectie). Het capaciteitstarief volgt de regel "
-        "voor digitale meters: gemiddelde maandpiek op kwartierbasis, minimum 2,5 kW. "
-        "Upload je export; er worden geen bestanden op de server bewaard."
+    st.title("Thuisbatterij – inschatting winst of verlies")
+    st.markdown(
+        "Deze app helpt inschatten **wat een thuisbatterij je financieel zou kunnen opleveren** "
+        "(of kosten), op basis van **jouw historische verbruik** uit Mijn Fluvius. "
+        "De simulatie doet alsof de gekozen batterij **in diezelfde periode** al aanwezig was geweest: "
+        "kwartier per kwartier wordt berekend hoeveel je van het net zou afnemen en injecteren, "
+        "en wat dat zou betekenen voor energiekost, kwartierpiek en terugverdientijd. "
+        "Het is **geen voorspelling van de toekomst**, wel een indicatie afgeleid uit het verleden."
     )
+    with st.expander("Limitaties en aannames"):
+        st.markdown(
+            """
+- **Historiek ≠ toekomst:** je verbruik, zonnepanelen, gezin en tarieven kunnen veranderen; resultaten zijn indicatief.
+- **Vaste gemiddelde prijzen:** afname en teruglevering gebruiken één €/kWh die jij invult; geen dynamische prijzen, geen day-ahead, geen onbalans of cap-tarief op energie.
+- **Geen prijsprognose:** de app heeft geen zicht op toekomstige stroomprijzen, prosumententarief of regelgeving.
+- **Resolutie 15 minuten:** Fluvius-kwartiertotalen; pieken binnen een kwartier worden niet gemodelleerd.
+- **Vereenvoudigde batterijsturing:** laden uit injectie, ontladen volgens gekozen strategie; geen omvormerlimieten van je installatie, geen netregels of exportbeperkingen.
+- **Capaciteitstarief (Vlaanderen):** gemiddelde maandpiek op netafname, minimum 2,5 kW; geen volledige netfactuur (kWh-tarief net, databeheer, maximaaltarief, …).
+- **Presetkosten:** investering en levensduur zijn richtwaarden; geen onderhoud, verzekering, rendement of restwaarde.
+- **Privacy:** upload blijft in je sessie; er worden geen bestanden op de server bewaard.
+            """
+        )
 
     with st.sidebar:
         st.header("Gegevens")
