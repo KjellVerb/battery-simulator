@@ -1,6 +1,5 @@
 # Thuisbatterij-simulator
-
-Inschat de **toekomstige winst of het verlies** van een thuisbatterij door je **historische verbruiksdata** (Fluvius, kwartiertotalen) te gebruiken. De app simuleert wat er **in diezelfde periode** zou gebeurd zijn **alsof** je de gekozen batterij al had: per kwartier laden uit overtollige injectie, ontladen bij afname, en vergelijken van kosten met en zonder batterij (inclusief Vlaams **capaciteitstarief** / kwartierpiek).
+Schat de **toekomstige winst of het verlies** van een thuisbatterij door je **historische verbruiksdata** (Fluvius, kwartiertotalen) te gebruiken. De app simuleert wat er **in diezelfde periode** zou gebeurd zijn **alsof** je de gekozen batterij al had: per kwartier laden uit overtollige injectie, ontladen bij afname, en vergelijken van kosten met en zonder batterij (inclusief Vlaams **capaciteitstarief** / kwartierpiek).
 
 Dat is een **indicatie op basis van het verleden**, geen garantie voor de komende jaren.
 
