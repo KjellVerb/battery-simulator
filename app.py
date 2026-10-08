@@ -331,6 +331,11 @@ def main() -> None:
             key="preset",
             on_change=_on_preset_change,
         )
+        st.caption(
+            "Presets met **[Gids]** komen van "
+            "[Thuisbatterijgids](https://thuisbatterijgids.net/thuisbatterij/) "
+            "(vanaf-prijzen, capaciteit, vermogen, RTE waar bekend)."
+        )
         st.number_input("Opslagcapaciteit (kWh)", min_value=0.1, step=0.1, key="capacity_kwh")
         st.number_input(
             "Laadefficiëntie",
