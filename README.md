@@ -1,6 +1,25 @@
 # Thuisbatterij-simulator
 
-Simuleer winst of verlies van een thuisbatterij op basis van Fluvius-kwartierdata (afname en injectie), inclusief het Vlaamse **capaciteitstarief** (kwartierpiek).
+Schat de **toekomstige winst of het verlies** van een thuisbatterij door je **historische verbruiksdata** (Fluvius, kwartiertotalen) te gebruiken. De app simuleert wat er **in diezelfde periode** zou gebeurd zijn **alsof** je de gekozen batterij al had: per kwartier laden uit overtollige injectie, ontladen bij afname, en vergelijken van kosten met en zonder batterij (inclusief Vlaams **capaciteitstarief** / kwartierpiek).
+
+Dat is een **indicatie op basis van het verleden**, geen garantie voor de komende jaren.
+
+## Hoe je het resultaat leest
+
+- **Besparing / terugverdientijd:** als je verbruikspatroon en tarieven ongeveer gelijk blijven, geeft de berekende jaarlijkse besparing een ruwe orde van grootte voor de toekomst.
+- **Vergelijkingstabel:** totale netafname, injectie, energiekost, kwartierpiek-kost en totale kost over de geüploade periode — zonder vs met batterij.
+- **Grafieken:** laadstatus, netafnamevermogen en stromen over de simulatieperiode.
+
+## Limitaties
+
+- **Geen voorspelling:** toekomstig verbruik (warmtepomp, EV, gezinsgrootte), zonne-opbrengst, weer en regelgeving kunnen afwijken van de historiek.
+- **Vaste stroomprijs:** één gemiddelde €/kWh voor afname en één voor teruglevering; geen uur- of kwartierprijzen, geen dynamisch contract, geen onbalanskosten.
+- **Geen markt- of beleidsmodel:** geen inschatting van toekomstige prijzen, prosumententarief, capaciteitstarief-wijzigingen of nieuwe heffingen.
+- **Kwartierresolutie:** data en simulatie lopen per **15 minuten**; kortere pieken en fijne timing (bijv. binnen het kwartier) zitten er niet in.
+- **Idealiseerde batterij:** efficiëntie, max. vermogen en SOC-grenzen volgens jouw parameters; geen gedetailleerd omvormer-/EMS-gedrag, geen exportlimiet of netoperator-regels.
+- **Capaciteitstarief vereenvoudigd:** gemiddelde maandpiek op gesimuleerde netafname, ondergrens 2,5 kW, tarief netbeheerder in €/kW/jaar; niet de volledige Fluvius-factuur (kWh-nettarief, databeheer, maximumtarief, …).
+- **Investering:** presetprijzen zijn indicatief; geen financiering, onderhoud, degradatie of restwaarde.
+- **Datakwaliteit:** ontbrekende kwartieren worden 0; fouten in de export of niet-geactiveerde kwartierregistratie beïnvloeden het resultaat.
 
 ## Installatie en starten
 
@@ -51,11 +70,11 @@ Het bestand bevat o.a. kolommen `Register` (Afname Dag/Nacht, Injectie Dag/Nacht
 - Lege of ontbrekende volumes aan het einde van de periode? Dat komt voor bij recente dagen; de simulator vult ontbrekende kwartieren met 0 kWh.
 - Hulp bij Mijn Fluvius: [Verbruik opvolgen | Fluvius](https://www.fluvius.be/nl/meters-en-meterstanden/verbruik-opvolgen).
 
-## Wat de simulator doet
+## Wat de simulator technisch doet
 
-- **Energiekost:** afname × stroomprijs minus injectie × terugleververgoeding.
-- **Kwartierpiek / capaciteitstarief:** gemiddelde van de hoogste maandelijkse kwartierpieken (afnamevermogen in kW), minimum **2,5 kW**, × tarief netbeheerder (€/kW/jaar).
-- **Vergelijkingstabel** zonder / met batterij en **zoombare grafieken** (laadstatus, netafname, stromen).
-- **Terugverdientijd** op basis van jaarlijkse besparing t.o.v. investeringskost en gekozen levensduur.
+- **Energiekost:** netafname × stroomprijs minus injectie × terugleververgoeding (met vs zonder batterij).
+- **Kwartierpiek / capaciteitstarief:** gemiddelde van de hoogste maandelijkse kwartierpieken op netafname (kW), minimum **2,5 kW**, × tarief netbeheerder (€/kW/jaar).
+- **Vergelijkingstabel** en **zoombare grafieken** (SOC, netvermogen, stromen).
+- **Terugverdientijd:** investering gedeeld door geschatte jaarlijkse besparing over de geüploade periode.
 
 Presetprijzen voor bekende thuisbatterijen zijn indicatief (incl. installatie waar van toepassing); pas aan via **Aangepast** of na het kiezen van een preset.
