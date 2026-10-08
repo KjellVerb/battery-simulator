@@ -1,6 +1,6 @@
 # Thuisbatterij-simulator
 
-Schat de **toekomstige winst of het verlies** van een thuisbatterij door je **historische verbruiksdata** (Fluvius, kwartiertotalen) te gebruiken. De app simuleert wat er **in diezelfde periode** zou gebeurd zijn **alsof** je de gekozen batterij al had: per kwartier laden uit overtollige injectie, ontladen bij afname, en vergelijken van kosten met en zonder batterij (inclusief Vlaams **capaciteitstarief** / kwartierpiek).
+Inschat de **toekomstige winst of het verlies** van een thuisbatterij door je **historische verbruiksdata** (Fluvius, kwartiertotalen) te gebruiken. De app simuleert wat er **in diezelfde periode** zou gebeurd zijn **alsof** je de gekozen batterij al had: per kwartier laden uit overtollige injectie, ontladen bij afname, en vergelijken van kosten met en zonder batterij (inclusief Vlaams **capaciteitstarief** / kwartierpiek).
 
 Dat is een **indicatie op basis van het verleden**, geen garantie voor de komende jaren.
 
@@ -78,3 +78,5 @@ Het bestand bevat o.a. kolommen `Register` (Afname Dag/Nacht, Injectie Dag/Nacht
 - **Terugverdientijd:** investering gedeeld door geschatte jaarlijkse besparing over de geüploade periode.
 
 Presetprijzen voor bekende thuisbatterijen zijn indicatief (incl. installatie waar van toepassing); pas aan via **Aangepast** of na het kiezen van een preset.
+
+Presets met prefix **`[Gids]`** zijn plug-in modellen van [Thuisbatterijgids](https://thuisbatterijgids.net/thuisbatterij/) (31 geteste batterijen plus extra modellen op die site). Prijs = hardware “vanaf”; RTE onbekend → 85% aangenomen; laad-/ontlaadefficiëntie = √(RTE).
